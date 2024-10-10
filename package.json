@@ -11,15 +11,16 @@
     "build": "sass src/scss:dist/css",
     "start": "sass --watch src/scss:dist/css & live-server",
     "format": "prettier --write 'src/**/*.js'",
-      "lint-fix": "eslint src/**/*.js --cache --fix",
+    "lint-fix": "eslint src/**/*.js --cache --fix",
     "lint": "eslint src/**/*.js",
-  
     "prepare": "husky install"
   },
   "keywords": [],
   "author": "Noroff",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
     "cypress": "^13.15.0",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-jest": "^28.8.3",
