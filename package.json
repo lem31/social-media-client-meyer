@@ -18,6 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-jest": "^28.8.3",
     "live-server": "^1.2.0",
     "prettier": "^3.3.3",
     "sass": "^1.54.8"
