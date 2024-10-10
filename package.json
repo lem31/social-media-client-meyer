@@ -19,6 +19,7 @@
   "author": "Noroff",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^13.15.0",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-jest": "^28.8.3",
     "husky": "^9.1.6",
