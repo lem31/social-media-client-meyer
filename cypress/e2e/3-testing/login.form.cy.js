@@ -1,34 +1,27 @@
-export const apiUrl = new URL(
-  'https://nf-api.onrender.com/api/v1',
-);
-export const apiPath = apiUrl.toString();
+import { apiPath } from '../../../src/js/api';
+import { login } from '../../../src/js/api';
 
-describe('Login Form Test', () => {
-  it('should login when provided with valid credentials and display the user profile', () => {
-    cy.intercept(
-      'POST',
-      `${apiPath}/social/auth/login`,
-      (req) => {
-        req.headers['Content-Type'] = 'application/json';
-        req.body = JSON.stringify({
-          email: 'fatherchristmas@stud.noroff.no',
-          password: 'fatherchristmas222',
-        });
-        req.continue();
-      },
-    ).as('loginAttempt');
+//Test does not work because no event listener has been added to the form/login button
 
+describe('Login Function Test', () => {
+  it('should login successfully with correct credentials', () => {
     cy.visit('/index.html');
 
-    cy.get('#closeButton').click();
+    cy.intercept('POST', `${apiPath}/social/auth/login`).as(
+      'loginAttempt',
+    );
 
+    // Fill out the login form using IDs
     cy.get('#loginEmail').type(
       'fatherchristmas@stud.noroff.no',
     );
     cy.get('#loginPassword').type('fatherchristmas222');
-    cy.get('#loginForm').submit();
 
-    cy.wait('@loginAttempt', { timeout: 30000 })
+    // Click on the login button using ID
+    cy.get('#loginButton').click();
+
+    // Wait for the login request to complete
+    cy.wait('@loginAttempt')
       .its('response.statusCode')
       .should('eq', 200);
   });
