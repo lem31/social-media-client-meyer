@@ -1,7 +1,10 @@
 import { apiPath } from '../../../src/js/api';
 import { login } from '../../../src/js/api';
 
-//Test does not work because no event listener has been added to the form/login button
+// The form below the login form needs to be closed
+//before you can enter any details in the login form
+//So I have added an extra bit of code to close the form below the login form for
+//the test to do its job
 
 describe('Login Function Test', () => {
   it('should login successfully with correct credentials', () => {
